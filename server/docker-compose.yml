@@ -1,7 +1,7 @@
 # OfinTech Desk Team Server with automatic HTTPS (Caddy).
 #   cp .env.example .env    (set DESK_DOMAIN, ACME_EMAIL and DESK_MASTER_KEY)
 #   docker compose up -d --build
-name: ofintech-desk
+#name: ofintech-desk
 
 services:
   engine:
@@ -22,7 +22,7 @@ services:
     # Resources, from the measured limits of the agent release record. One engine process uses about one core when
     # busy (Python); 2 CPUs leave room for the worker threads. Peak RSS measured under 200 concurrent users was about
     # 620 MB with the load generator in the same process; 2 GB is about 3x that. Raise both for large ledgers.
-    cpus: 2.0
+    cpus: 1.0
     mem_limit: 2g
     mem_reservation: 512m
     pids_limit: 512                     # threads count as pids: the pools need tens, not hundreds
