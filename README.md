@@ -119,6 +119,8 @@ covered in [docs/RELEASING.md](docs/RELEASING.md).
 cd server
 cp .env.example .env        # DESK_DOMAIN, ACME_EMAIL, DESK_MASTER_KEY; optional SMTP and Google sign-in
 docker compose up -d --build
+docker save ofintech-desk:local | sudo ctr -n k8s.io images import -
+k create -f k8s-manifests/
 ```
 
 Open `https://<DESK_DOMAIN>`. The first account becomes the administrator; after that, people join by invitation.
